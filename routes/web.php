@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,11 +15,11 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
-Route::get('/index', function () {
-    return view('index');
-});
+Route::view('/','/login');
 Route::post('/index',[AdminController::class,'login']);
-// Route::get('/index',[ProductController::class,'store']);
+
+Route::get('/index',[ProductController::class,'create']);
+Route::post('/store',[ProductController::class,'store']);
+
+Route::get('/productlist',[ProductController::class,'productlist']);
+
