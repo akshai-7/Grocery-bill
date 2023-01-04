@@ -19,6 +19,7 @@
         font-family: 'Times New Roman', Times, serif;
         height: 100vh;
         width: 100vw;
+        background: lightgray;
     }
     .container{
         margin-top: 10%;
@@ -29,21 +30,26 @@
         justify-content: center;
     }
     .row{
-        border: 1px solid lightgray;
-        width: 400px;
-        height: 400px;
+        border: 1px solid gray;
+        width: 350px;
+        height: 350px;
         display: flex;
         align-items: center;
         justify-content: center;
+        background: white;
+        border-radius: 5px;
     }
+
     .box{
-        margin-top: 10px
+        margin-top: -40px;
+        margin-left: 15px;
+
     }
     .input-container {
-    display: -ms-flexbox; /* IE10 */
+    /* display:flexbox; */
     display: flex;
-    width: 100%;
-    margin-bottom: 15px;
+    width: 90%;
+    margin-bottom: 10px;
     }
 
     .icon {
@@ -52,7 +58,7 @@
     }
     .nav{
     color: white;
-    height: 50px;
+    height: 60px;
 }
 
     .footer {
@@ -60,7 +66,6 @@
        left: 0;
        bottom: 0;
        width: 100%;
-
        color: white;
        text-align: center;
     }
@@ -68,10 +73,11 @@
 </style>
 <body>
     <header>
-        <nav class="bg-secondary nav">
-            <div class="">
-              <a class="navbar-brand" href=""><B>Grocery shop</B> </a>
+        <nav class="bg-secondary">
+            <div class="container-fluid">
+              <a class="navbar-brand nav" href="">Grocery shop</a>
             </div>
+
           </nav>
     </header>
     <section>
@@ -80,17 +86,18 @@
                 <div class="col-md-10 box">
                     <form role="form" action="/index" method="POST">
                         @csrf
+                        <div class=" text-primary"><h2>Login</h2></div><hr>
                             <div class="input-container">
                                 <i class="fa fa-envelope icon bg-primary"></i>
                                 <input class="input-field form-control" type="text" placeholder="Enter Email" name="email">
                             </div>
-
                             <div class="input-container ">
                                 <i class="fa fa-key icon bg-primary"></i>
                                 <input class="input-field form-control" type="password" placeholder="Password" name="password">
                             </div>
-                            <p align="center"><input type="submit" name="submit" value="Login" class="btn btn-primary"></p>
-                      </form>
+                            <hr>
+                            <p align="center" ><input type="submit" name="submit" value="Login" class="btn btn-primary"></p>
+                        </form>
                 </div>
             </div>
          </div>

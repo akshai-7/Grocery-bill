@@ -15,11 +15,12 @@ class CreateBillsTable extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
-            $table->string('billno');
+            $table->integer('bill_number');
             $table->string('date');
             $table->string('name');
             $table->string('address');
             $table->string('mobile');
+            $table->decimal('grandtotal',8,2);
             $table->timestamps();
         });
     }

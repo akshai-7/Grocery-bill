@@ -11,7 +11,11 @@ class AdminController extends Controller
         $user = User::where(['email'=>$request->email])->first();
 
         if(!$user|| !Hash::check($request->password,$user->password)){
-                return "Username or Password is not matched";
+                // return "Username or Password is not matched";
+                // return redirect('/');
+                echo  "<script>alert('Username or Password is not matched')</script>";
+
+                // return redirect('/')->with('success', 'Thanks for contacting us!');
         }else{
 
             return redirect('/index');

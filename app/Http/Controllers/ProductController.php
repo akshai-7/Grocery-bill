@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Bill;
+use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
 {
     public function create(){
@@ -15,8 +16,9 @@ class ProductController extends Controller
             'billno'=>'required',
             'date'=>'required',
             'name'=>'required',
-            'address'=>'required',
+            'address'=>'required|max:50',
             'mobile'=>'required',
+            'grandtotal=>requireed',
             'productname'=>'required',
             'price'=>'required',
             'qty'=>'required',
@@ -26,35 +28,24 @@ class ProductController extends Controller
             'total'=>'required',
         ]);
 
-        $billno = $request->input('billno');
-        $date = $request->input('date');
-        $name =  $request->input('name');
-        $address = $request->input('address');
-        $mobile = $request->input('mobile');
-        $productname = $request->input('productname');
-        $price = $request->input('price');
-        $qty = $request->input('qty');
-        $subtotal = $request ->input('subtotal');
-        $tax = $request -> input('tax');
-        $taxamount= $request -> input('taxamount');
-        $total = $request->input('total');
+        $bill = new Bill();
+        $bill->bill_number = $request['billno'];
+        $bill->date=$request['date'];
+        $bill->name=$request['name'];
+        $bill->address=$request['address'];
+        $bill->mobile=$request['mobile'];
+        $bill->grandtotal=$request['grandtotal'];
+        $bill->save();
 
-        $user = new Bill ;
-        $user->billno= $billno;
-        $user->date=$date;
-        $user->name=$name;
-        $user->address=$address;
-        $user->mobile=$mobile;
-        $user->save();
-
-        $user = new Product;
-        $user->productname = $productname;
-        $user->price = $price;
-        $user->qty = $qty;
-        $user->subtotal = $subtotal;
-        $user->tax= $tax;
-        $user->taxamount = $taxamount;
-        $user->total = $total;
+        $user = new Product();
+        // $user->bill_id =auth()->bills()->id;;
+        $user->productname = $request['productname'];
+        $user->price = $request['price'];
+        $user->qty = $request['qty'];
+        $user->subtotal = $request['subtotal'];
+        $user->tax= $request['tax'];
+        $user->taxamount =$request['taxamount'];
+        $user->total = $request['total'];
         $user->save();
 
         return redirect('/productlist');

@@ -1,1 +1,1 @@
-<h1>Data Stored Succesfully</h1>
+<h3>Data Stored Succesfully</h3>

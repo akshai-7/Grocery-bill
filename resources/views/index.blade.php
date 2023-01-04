@@ -8,19 +8,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 </head>
 <style>
-
     body{
         font-family: 'Times New Roman', Times, serif
     }
-.nav{
+    .nav{
     color: white;
-}
+    }
     .container{
         margin-top: 40px;
         width: 100%;
@@ -38,7 +36,7 @@
 
     }
     .box1{
-        width: 950px;
+        width: 1000px;
         margin-left: 0px;
         font-size: 17px;
     }
@@ -51,7 +49,7 @@
        color: white;
        text-align: center;
     }
-    </style>
+</style>
 <body>
 <header>
     <nav class="navbar navbar-expand-lg   bg-secondary">
@@ -98,13 +96,13 @@
                         <tr>
                             <th class="col-md-1" style="text-align:center;">S.no</th>
                             <th style="text-align:center;" class="col-md-3">Product</th>
-                            <th style="text-align:center;">Price</th>
-                            <th style="text-align:center;">Qty</th>
-                            <th style="text-align:center;">Sub Total</th>
-                            <th style="text-align:center;">Tax(%)</th>
-                            <th style="text-align:center;">Tax-amount</th>
-                            <th style="text-align:center;">Total</th>
-                            <th style="text-align:center;"><input type="button" value="+" class=" btn btn-primary " id=btn-add-row></th>
+                            <th style="text-align:center;" class="col-md-1">Price</th>
+                            <th style="text-align:center;" class="col-md-1">Qty</th>
+                            <th style="text-align:center;" class="col-md-2">Sub Total</th>
+                            <th style="text-align:center;" class="col-md-1">Tax(%)</th>
+                            <th style="text-align:center;" class="col-md-1">Tax-amount</th>
+                            <th style="text-align:center;" class="col-md-2">Total</th>
+                            <th><input type="button" value="+" class=" btn btn-primary btn-sm" id=btn-add-row></th>
                         </tr>
                     </thead>
                     <tbody id='row' >
@@ -137,7 +135,7 @@
                     <tr class="new">
                         <td colspan="6"></td>
                         <td style="text-align:center;"><B>Grand Total</B></td>
-                        <td><input type="text" name="grand_total" id="grand_total" class="form-control" required></td>
+                        <td><input type="text" name="grandtotal" id="grand_total" class="form-control" style="text-align:center;"  required></td>
                         <td></td>
                     </tr>
                     </tfoot>
@@ -162,7 +160,6 @@
         $("#btn-add-row").on('click',function(){
         i++
         $("#row").append("<tr class='list'><td id='row_num "+i+"'><input type='text' required name='sno' class='form-control' value="+i+" style='text-align:center;'></td>'+'<td><input type='text' required name='productname' class='form-control productname' style='text-align:center;'></td>'+' <td><input type='text' required name='price' class='form-control price' style='text-align:center;'></td>'+'<td><input type='text' required name='qty' class='form-control qty' style='text-align:center;'></td> '+' <td><input type='text' required name='subtotal' class='form-control subtotal' style='text-align:center;'></td>'+'<td><input type='text' required name='tax' class='form-control tax' style='text-align:center;'></td>'+'<td><input type='text' required name='taxamount' class='form-control taxamount' style='text-align:center;'></td> '+'<td><input type='text' required name='total' class='form-control total' style='text-align:center;'></td>'+'<td><input type='button' value='X' class='btn btn-danger btn-sm btn-row-remove' style='text-align:center;'></td></tr>");
-
         });
 
 // <--Del row-->
@@ -172,7 +169,7 @@
         grand_total()
         $('tbody tr').each(function(index) {
         //change hidden input value
-        $(this).find("td:eq(0)").html((index + 1) + '<td><input type="text" class="form-control" style="text-align:center;"  value=' + (index + 1) +' ></td>')
+        $(this).find("td:eq(0)").html((index + 1) +'<td><input type="text" class="form-control" style="text-align:center;"  value=' + (index + 1) +' ></td>')
         });
         i--;
         });
@@ -198,7 +195,7 @@
             var subtotal=Number($(this).val());
             var tax =Number($(this).closest("tr").find(".tax").val());
             $(this).closest("tr").find(".taxamount").val(subtotal*tax/100);
-            var taxamount=Number($('.taxamount').val());
+            var taxamount=Number($(this).closest("tr").find(".taxamount").val());
             $(this).closest("tr").find(".total").val(subtotal+taxamount);
             grand_total()
         });
@@ -207,12 +204,10 @@
             var tax=Number($(this).val());
             var subtotal =Number($(this).closest("tr").find(".subtotal").val());
             $(this).closest("tr").find(".taxamount").val(subtotal*tax/100);
-            var taxamount=Number($('.taxamount').val());
+            var taxamount=Number($(this).closest("tr").find(".taxamount").val());
             $(this).closest("tr").find(".total").val(subtotal+taxamount);
             grand_total()
         });
-
-
 
 // <--total-->
         // $("tbody").on("keyup",".subtotal",function(){
@@ -236,17 +231,7 @@
             });
             $("#grand_total").val(total);
         }
-
-
         });
-
-
-
-
-
-
-
-
 </script>
 </section>
 

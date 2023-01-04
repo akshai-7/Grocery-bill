@@ -15,15 +15,19 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('sno');
+            $table->unsignedBigInteger('bill_id');
             $table->string('productname');
-            $table->string('price');
-            $table->string('qty');
-            $table->string('subtotal');
-            $table->string('tax');
-            $table->string('taxamount');
-            $table->string('total');
+            $table->decimal('price',8,2);
+            $table->integer('qty');
+            $table->decimal('subtotal',8,2);
+            $table->integer('tax');
+            $table->decimal('taxamount',8,2);
+            $table->decimal('total',8,2);
             $table->timestamps();
+
+
+            // $table->foreign('bill_id')->references('id')->on('bills')->onDelete('cascade');
+
         });
     }
 
