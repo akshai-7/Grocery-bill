@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Bill;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+
 class ProductController extends Controller
 {
     public function create(){
@@ -29,7 +31,7 @@ class ProductController extends Controller
         ]);
 
         $bill = new Bill();
-        $bill->bill_number = $request['billno'];
+        $bill->bill_number = $request ['billno'];
         $bill->date=$request['date'];
         $bill->name=$request['name'];
         $bill->address=$request['address'];
@@ -37,18 +39,46 @@ class ProductController extends Controller
         $bill->grandtotal=$request['grandtotal'];
         $bill->save();
 
-        $user = new Product();
-        // $user->bill_id =auth()->bills()->id;;
-        $user->productname = $request['productname'];
-        $user->price = $request['price'];
-        $user->qty = $request['qty'];
-        $user->subtotal = $request['subtotal'];
-        $user->tax= $request['tax'];
-        $user->taxamount =$request['taxamount'];
-        $user->total = $request['total'];
-        $user->save();
 
-        return redirect('/productlist');
+// dd($request->all());
+// $product = $request->all();
+// foreach($product as $item){
+//     $user = new Product();
+//     $user->bill_id = $bill->id;
+//     $user->productname = $item['productname'];
+//     $user->price = $item['price'];
+//     $user->qty = $item['qty'];
+//     $user->subtotal = $item['subtotal'];
+//     $user->tax= $item['tax'];
+//     $user->taxamount =$item['taxamount'];
+//     $user->total = $item['total'];
+//     $user->save();
+
+// }
+
+$data= $request->all();
+// dd($data['productname']);
+$user = new Product();
+// $user->bill_id=$bill['billno'];
+if($data['billno']){
+foreach($data['productname'] as  $row => $value){
+    $data1=array(
+    'bill_id'=>$bill->id,
+    'productname'=> $data['productname'][$row],
+    'price'=>$data['price'][$row],
+    'qty'=> $data['qty'][$row],
+    'subtotal'=> $data['subtotal'][$row],
+    'tax'=> $data['tax'][$row],
+    'taxamount'=> $data['taxamount'][$row],
+    'total'=> $data['total'][$row],
+    );
+    Product::create($data1);
+}
+}
+
+
+
+        // return redirect('/productlist');
     }
     public function productlist(){
 
