@@ -22,4 +22,6 @@ Route::get('/index',[ProductController::class,'create']);
 Route::post('/store',[ProductController::class,'store']);
 
 Route::get('/productlist',[ProductController::class,'productlist']);
+Route::get('popup/{id}',[Productcontroller::class,'popup']);
 
+Route::get('delete/{id}',[ProductController::class,'delete']);

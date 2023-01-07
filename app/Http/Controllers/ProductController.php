@@ -57,11 +57,11 @@ class ProductController extends Controller
 // }
 
 $data= $request->all();
-// dd($data['productname']);
-$user = new Product();
-// $user->bill_id=$bill['billno'];
-if($data['billno']){
+// dd($data);
+
+if($data['productname']){
 foreach($data['productname'] as  $row => $value){
+
     $data1=array(
     'bill_id'=>$bill->id,
     'productname'=> $data['productname'][$row],
@@ -74,14 +74,34 @@ foreach($data['productname'] as  $row => $value){
     );
     Product::create($data1);
 }
+
 }
 
 
 
-        // return redirect('/productlist');
+    return redirect('/productlist');
     }
     public function productlist(){
+        $bills= Bill::all();
+        // dd($bill);
+        return view('/productlist',['bills'=>$bills]);
+    }
 
-        return view('/productlist');
+    public function popup($id){
+        $users = Product::find($id);
+        // dd($bill);
+        return view('/popup',['users'=>$users]);
+    }
+
+    // public function edit($id){
+    //     $users = Product::find($id);
+    //     dd($users);
+    //     return view('/productlist',['users'=>$users]);
+
+    // }
+    public function delete($id){
+        $bills = Bill::find($id);
+        $bills->delete();
+        return redirect('/productlist');
     }
 }
