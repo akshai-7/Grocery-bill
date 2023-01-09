@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Bill;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
+
 
 class ProductController extends Controller
 {
     public function create(){
         return view('/index');
     }
+
     public function store(Request $request){
         $request->validate([
             'billno'=>'required',
@@ -39,69 +40,47 @@ class ProductController extends Controller
         $bill->grandtotal=$request['grandtotal'];
         $bill->save();
 
+        $data= $request->all();
+        // dd($data);
 
-// dd($request->all());
-// $product = $request->all();
-// foreach($product as $item){
-//     $user = new Product();
-//     $user->bill_id = $bill->id;
-//     $user->productname = $item['productname'];
-//     $user->price = $item['price'];
-//     $user->qty = $item['qty'];
-//     $user->subtotal = $item['subtotal'];
-//     $user->tax= $item['tax'];
-//     $user->taxamount =$item['taxamount'];
-//     $user->total = $item['total'];
-//     $user->save();
+        if($data['productname']){
+        foreach($data['productname'] as  $row => $value){
 
-// }
-
-$data= $request->all();
-// dd($data);
-
-if($data['productname']){
-foreach($data['productname'] as  $row => $value){
-
-    $data1=array(
-    'bill_id'=>$bill->id,
-    'productname'=> $data['productname'][$row],
-    'price'=>$data['price'][$row],
-    'qty'=> $data['qty'][$row],
-    'subtotal'=> $data['subtotal'][$row],
-    'tax'=> $data['tax'][$row],
-    'taxamount'=> $data['taxamount'][$row],
-    'total'=> $data['total'][$row],
-    );
-    Product::create($data1);
-}
-
-}
-
-
-
-    return redirect('/productlist');
-    }
-    public function productlist(){
-        $bills= Bill::all();
-        // dd($bill);
-        return view('/productlist',['bills'=>$bills]);
+        $data1=array(
+        'bill_id'=>$bill->id,
+        'productname'=> $data['productname'][$row],
+        'price'=>$data['price'][$row],
+        'qty'=> $data['qty'][$row],
+        'subtotal'=> $data['subtotal'][$row],
+        'tax'=> $data['tax'][$row],
+        'taxamount'=> $data['taxamount'][$row],
+        'total'=> $data['total'][$row],
+        );
+        Product::create($data1);
+        }
+      }
+        return redirect('/customerlist');
     }
 
-    public function popup($id){
-        $users = Product::find($id);
-        // dd($bill);
-        return view('/popup',['users'=>$users]);
+    public function customerlist(){
+            $bills= Bill::all();
+            // dd($bill);
+            return view('/customerlist',['bills'=>$bills]);
     }
 
-    // public function edit($id){
-    //     $users = Product::find($id);
-    //     dd($users);
-    //     return view('/productlist',['users'=>$users]);
+    public function productlist($id){
+            // $products = Product::all();
+            // return view('/productlist');
 
-    // }
+            $users = Bill::with('product')->whereId($id)->first();
+            // dd($users);
+            return view('/productlist',['users'=>$users] );
+            // return Response::json($users);
+    }
+
     public function delete($id){
-        $bills = Bill::find($id);
-        $bills->delete();
-        return redirect('/productlist');
+            $bills = Bill::find($id);
+            $bills->delete();
+            return redirect('/customerlist');
     }
 }
