@@ -49,6 +49,7 @@
                 <th style="text-align:center;">Tax</th>
                 <th style="text-align:center;">Tax Amount</th>
                 <th style="text-align:center;">Total</th>
+                <th style="text-align:center;">Action</th>
 
             </thead>
             <tbody>
@@ -62,6 +63,8 @@
                     <td style="text-align:center;">{{$user->tax}}</td>
                     <td style="text-align:center;">{{$user->taxamount}}</td>
                     <td style="text-align:center;">{{$user->total}}</td>
+                    <td style="text-align:center;"><a href="/edit/{{$user->bill_id}}"><i class="fa-solid fa-pen-to-square btn btn-success"></i></a></td>
+                    {{-- @dd($user->bill_id); --}}
                 </tr>
                  @endforeach
             </tbody>

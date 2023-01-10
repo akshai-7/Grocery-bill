@@ -17,4 +17,12 @@ protected $fillable = [
     {
         return $this->belongsTo(Bill::class);
     }
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($user) {
+             $user->bills()->delete();
+
+        });
+    }
 }

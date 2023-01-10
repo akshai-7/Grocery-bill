@@ -65,11 +65,10 @@
                 <td style="text-align:center;">{{$bills->name}}</td>
                 <td style="text-align:center;">{{$bills->address}}</td>
                 <td style="text-align:center;">{{$bills->mobile}}</td>
-                <td >{{$bills->grandtotal}}</td>
-
-            <td style="text-align:center;">
-                <a href="productlist/{{$bills->id}}"><i class="fa-solid fa-pen-to-square btn btn-primary" ></i></a>
-             <a href="delete/{{$bills->id}}"><i class="fa-solid fa-trash btn btn-danger"></i></a></td>
+                <td  style="text-align:center;">{{$bills->grandtotal}}</td>
+                <td style="text-align:center;">
+                <a href="productlist/{{$bills->id}}"><i class="fa-solid fa-eye btn btn-primary" ></i></a>
+                 <a href="delete/{{$bills->id}}"><i class="fa-solid fa-trash btn btn-danger"></i></a></td>
                 </tr>
                 @endforeach
             </tbody>

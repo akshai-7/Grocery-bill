@@ -11,7 +11,15 @@ class Bill extends Model
 
     public function product()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Product::class,'bill_id','id');
+    }
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($user) {
+             $user->product()->delete();
+
+        });
     }
 }
 

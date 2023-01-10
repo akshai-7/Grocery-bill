@@ -25,11 +25,7 @@ Route::post('/store',[ProductController::class,'store']);
 
 Route::get('/customerlist',[ProductController::class,'customerlist']);
 Route::get('productlist/{id}',[Productcontroller::class,'productlist']);
-
-// Route::get('/productlist/{id}',function($id){
-//     $prouduct = Bill::with('product')->whereId($id)->first();
-//     return Response::json($prouduct);
-//     // return view('/productlist' );
-//     });
-
+Route::get('edit/{id}',[Productcontroller::class,'edit']);
 Route::get('delete/{id}',[ProductController::class,'delete']);
+Route::post('update/{id}',[Productcontroller::class,'update']);
+
