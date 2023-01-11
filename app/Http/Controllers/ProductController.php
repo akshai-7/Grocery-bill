@@ -81,8 +81,8 @@ class ProductController extends Controller
     }
     public function edit($bill_id){
 // dd($bill_id);
-// $user=Bill::find($bill_id);
-        $user = Bill::with('product')->whereId($bill_id)->first();
+
+        // $user = Bill::with('product')->whereId($bill_id)->first();
         // $user = Bill::with('product')->where('name', 'mani')->first();
         // $user = Bill::with('product')->orwhere('name', 'mani')->first();
         // $user = Bill::find($id);
@@ -103,14 +103,15 @@ class ProductController extends Controller
         // $user = Product::with('bills')->groupBy('price')->having('price','>','100');
         // dd($user);
 
-        // return view ('/edit',['user'=>$user]);
+        $user = Bill::with('product')->whereId($bill_id)->first();
         // $user = Product::with('bills')->whereId($bill_id)->first();
+        // $user= Bill::find($bill_id);
+
+        // dd($user);
         return view ('/edit',['user'=>$user]);
 
 
     }
-
-
     public function update(Request $request,$id){
         $request->validate([
             'billno'=>'required',
@@ -127,6 +128,7 @@ class ProductController extends Controller
             'taxamount'=>'required',
             'total'=>'required',
         ]);
+        // dd($request);
 
         $bill = Bill::find($id);
         $bill->bill_number = $request ['billno'];
@@ -137,13 +139,23 @@ class ProductController extends Controller
         $bill->grandtotal=$request['grandtotal'];
         $bill->save();
 
-
         $data= $request->all();
         // dd($data);
-// $data =Product::find($id);
+        // $data = Product::find($id);
+        // // $data->bill_id=$bill->id;
+        // $data->productname = $request['productname'];
+        // $data->price = $request['price'];
+        // $data->qty = $request['qty'];
+        // $data->subtotal = $request['subtotal'];
+        // $data->tax = $request['tax'];
+        // $data->taxamount = $request['taxamount'];
+        // $data->total = $request['total'];
+        // $data->save();
+
+
+
         if($data['productname']){
         foreach($data['productname'] as  $row => $value){
-
         $data1=array(
         'bill_id'=>$bill->id,
         'productname'=> $data['productname'][$row],
@@ -155,21 +167,11 @@ class ProductController extends Controller
         'total'=> $data['total'][$row],
         );
         Product::create($data1);
-        // dd($data1);
-        // $data1->save();
-        // $user =Product::find($id);
-        // $user->productname = $request ['productname'];
-        // // $user->productname = $request->input('productname');
-        // $user->price = $request->input('price');
-        // $user->qty = $request->input('qty');
-        // $user->subtotal = $request->input('subtotal');
-        // $user->tax= $request->input('tax');
-        // $user->taxamount= $request->input('taxamount');
-        // $user->total= $request->input('total');
-        // $user->save();
-
+        }
+      }
         return redirect('/customerlist');
     }
-    }
+
 }
-}
+
+
