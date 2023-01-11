@@ -29,6 +29,11 @@
        color: white;
        text-align: center;
     }
+    .footer p{
+        margin-right: 20px;
+        margin-top: 20px;
+        margin-bottom: 10px
+    }
 </style>
 <body>
     <header>
@@ -77,7 +82,8 @@
   </section>
   <footer class="bg-secondary">
     <div class="footer bg-secondary">
-        <p>Footer</p>
+        <p align="right"><input type="submit" class="btn btn-primary"></p>
+
       </div>
 
 </footer>

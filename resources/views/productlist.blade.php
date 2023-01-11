@@ -24,6 +24,11 @@
        color: white;
        text-align: center;
     }
+    .footer p{
+        margin-right: 20px;
+        margin-top: 20px;
+        margin-bottom: 10px
+    }
 </style>
 <body>
     <header>
@@ -51,6 +56,7 @@
                 <th style="text-align:center;">Total</th>
                 <th style="text-align:center;">Action</th>
 
+
             </thead>
             <tbody>
                  @foreach ($users->product as $user )
@@ -66,14 +72,17 @@
                     <td style="text-align:center;"><a href="/edit/{{$user->bill_id}}"><i class="fa-solid fa-pen-to-square btn btn-success"></i></a></td>
                     {{-- @dd($user->bill_id); --}}
                 </tr>
+
                  @endforeach
+
             </tbody>
         </table>
     </div>
   </section>
   <footer class="bg-secondary">
     <div class="footer bg-secondary">
-        <p>Footer</p>
+        <p align="right"><input type="submit" class="btn btn-primary"></p>
+
       </div>
 
 </footer>

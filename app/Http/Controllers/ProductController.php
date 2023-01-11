@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Bill;
-use Illuminate\Support\Facades\Response;
+
 
 
 class ProductController extends Controller
@@ -75,8 +75,6 @@ class ProductController extends Controller
     public function delete($id){
             $bills =  Bill::find($id);
             $bills->delete();
-
-
             return redirect('/customerlist');
     }
     public function edit($bill_id){
@@ -113,6 +111,7 @@ class ProductController extends Controller
 
     }
     public function update(Request $request,$id){
+        // dd($request->all());
         $request->validate([
             'billno'=>'required',
             'date'=>'required',
@@ -128,7 +127,6 @@ class ProductController extends Controller
             'taxamount'=>'required',
             'total'=>'required',
         ]);
-        // dd($request);
 
         $bill = Bill::find($id);
         $bill->bill_number = $request ['billno'];
@@ -141,21 +139,9 @@ class ProductController extends Controller
 
         $data= $request->all();
         // dd($data);
-        // $data = Product::find($id);
-        // // $data->bill_id=$bill->id;
-        // $data->productname = $request['productname'];
-        // $data->price = $request['price'];
-        // $data->qty = $request['qty'];
-        // $data->subtotal = $request['subtotal'];
-        // $data->tax = $request['tax'];
-        // $data->taxamount = $request['taxamount'];
-        // $data->total = $request['total'];
-        // $data->save();
-
-
-
         if($data['productname']){
         foreach($data['productname'] as  $row => $value){
+        $product=Product::where('id',$data['product_id'][$row])->first();
         $data1=array(
         'bill_id'=>$bill->id,
         'productname'=> $data['productname'][$row],
@@ -166,9 +152,13 @@ class ProductController extends Controller
         'taxamount'=> $data['taxamount'][$row],
         'total'=> $data['total'][$row],
         );
-        Product::create($data1);
+    //    Product::create($data1);
+       $product->update($data1);
+
         }
+
       }
+
         return redirect('/customerlist');
     }
 

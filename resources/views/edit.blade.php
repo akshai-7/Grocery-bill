@@ -95,6 +95,7 @@
                     <thead>
                         <tr>
                             <th class="col-md-1" style="text-align:center;">S.no</th>
+                            <th class="col-md-1" style="text-align:center;">Product Id</th>
                             <th style="text-align:center;" class="col-md-3">Product</th>
                             <th style="text-align:center;" class="col-md-1">Price</th>
                             <th style="text-align:center;" class="col-md-1">Qty</th>
@@ -103,12 +104,14 @@
                             <th style="text-align:center;" class="col-md-1">Tax-amount</th>
                             <th style="text-align:center;" class="col-md-2">Total</th>
                             <th><input type="button" value="+" class=" btn btn-primary btn-sm" id=btn-add-row></th>
+                            {{-- <th></th> --}}
                         </tr>
                     </thead>
                     <tbody id='row' >
                         @foreach ($user->product as $user )
                         <tr class="list">
                             <td><input type="text" required name="sno[]" class="form-control" style="text-align:center;" value="{{$loop->iteration}}" id="sno"></td>
+                            <td><input type="" name="product_id[]" class="form-control" style="text-align:center;" value="{{$user->id}}" id="sno"></td>
                             <td><input type="text" required name="productname[]" class="form-control productname" style="text-align:center;" id="productname" value="{{$user->productname}}"></td>
                             <td><input type="text" required name="price[]" class="form-control price" style="text-align:center;"id="price" value="{{$user->price}}"></td>
                             <td><input type="text" required name="qty[]" class="form-control qty" style="text-align:center;" id="qty" value="{{$user->qty}}"></td>
@@ -117,7 +120,6 @@
                             <td><input type="text" required name="taxamount[]" class="form-control taxamount" style="text-align:center;" id="taxamount" value="{{$user->taxamount}}"></td>
                             <td><input type="text" required name="total[]" class="form-control total" style="text-align:center;" id="total" value="{{$user->total}}"></td>
                             <td><input type="button" value="X" class="btn btn-danger btn-sm btn-row-remove" style="text-align:center;" id="del" value=""></td>
-
                         </tr>
                         @endforeach
                     </tbody>
@@ -144,9 +146,7 @@
 
 // <--Add row-->
 
-        // $("#btn-add-row").on('click',function(){
-        // $("#row").append("<tr class='list'><td><input type='text' required name='sno' class='form-control' value='' style='text-align:center;'></td><td><input type='text' required name='pname' class='form-control pname' style='text-align:center;'></td> <td><input type='text' required name='price' class='form-control price' style='text-align:center;'></td><td><input type='text' required name='qty' class='form-control qty' style='text-align:center;'></td><td><input type='text' required name='subtotal' class='form-control subtotal' style='text-align:center;'></td><td><input type='text' required name='tax' class='form-control tax' style='text-align:center;'></td><td><input type='text' required name='taxamount' class='form-control taxamount' style='text-align:center;'></td> <td><input type='text' required name='total' class='form-control total' style='text-align:center;'></td><td><input type='button' value='X' class='btn btn-danger btn-sm btn-row-remove' style='text-align:center;'></td></tr>");
-        var i=1;
+        var i=2;
         $("#btn-add-row").on('click',function(){
         i++
         $("#row").append("<tr class='list'><td id='row_num "+i+"'><input type='text' required name='sno[]' class='form-control' value="+i+" style='text-align:center;'></td>'+'<td><input type='text' required name='productname[]' class='form-control productname' style='text-align:center;'></td>'+' <td><input type='text' required name='price[]' class='form-control price' style='text-align:center;'></td>'+'<td><input type='text' required name='qty[]' class='form-control qty' style='text-align:center;'></td> '+' <td><input type='text' required name='subtotal[]' class='form-control subtotal' style='text-align:center;'></td>'+'<td><input type='text' required name='tax[]' class='form-control tax' style='text-align:center;'></td>'+'<td><input type='text' required name='taxamount[]' class='form-control taxamount' style='text-align:center;'></td> '+'<td><input type='text' required name='total[]' class='form-control total' style='text-align:center;'></td>'+'<td><input type='button' value='X' class='btn btn-danger btn-sm btn-row-remove' style='text-align:center;'></td></tr>");

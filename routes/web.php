@@ -3,9 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
-use App\Models\Bill;
-use App\Models\Product;
-use Illuminate\Support\Facades\Response;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
