@@ -34,6 +34,10 @@
         margin-top: 20px;
         margin-bottom: 10px
     }
+    .header{
+        position: sticky;
+        top: 0;
+    }
 </style>
 <body>
     <header>
@@ -50,7 +54,7 @@
     </div>
     <div class="d-flex justify-content-center align-items-center">
         <table class="table table-striped table-bordered col-md-5 mt-3" style="width:1000px">
-            <thead>
+            <thead class="header">
                 <th style="text-align:center;">S.No</th>
                 <th style="text-align:center;">Bill Number</th>
                 <th style="text-align:center;">Date</th>

@@ -49,6 +49,10 @@
        color: white;
        text-align: center;
     }
+    .header{
+        position: sticky;
+        top: 0;
+    }
 </style>
 <body>
 <header>
@@ -92,7 +96,7 @@
                 <div class="box1">
                     <h5 class="text-primary">Product Details</h5>
                     <table class="table table-bordered">
-                    <thead>
+                    <thead class="header">
                         <tr>
                             <th class="col-md-1" style="text-align:center;">S.no</th>
                             <th style="text-align:center;" class="col-md-3">Product</th>
