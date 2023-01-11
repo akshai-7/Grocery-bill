@@ -82,7 +82,7 @@ class ProductController extends Controller
     public function edit($bill_id){
 // dd($bill_id);
 
-        // $user = Bill::with('product')->whereId($bill_id)->first();
+        $user = Bill::with('product')->whereId($bill_id)->first();
         // $user = Bill::with('product')->where('name', 'mani')->first();
         // $user = Bill::with('product')->orwhere('name', 'mani')->first();
         // $user = Bill::find($id);
@@ -103,7 +103,7 @@ class ProductController extends Controller
         // $user = Product::with('bills')->groupBy('price')->having('price','>','100');
         // dd($user);
 
-        $user = Bill::with('product')->whereId($bill_id)->first();
+        // $user = Bill::with('product')->whereId($bill_id)->first();
         // $user = Product::with('bills')->whereId($bill_id)->first();
         // $user= Bill::find($bill_id);
 
@@ -171,6 +171,7 @@ class ProductController extends Controller
       }
         return redirect('/customerlist');
     }
+
 
 }
 
