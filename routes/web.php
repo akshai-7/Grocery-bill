@@ -23,8 +23,9 @@ Route::get('/index',[ProductController::class,'create']);
 Route::post('/store',[ProductController::class,'store']);
 
 Route::get('/customerlist',[ProductController::class,'customerlist']);
+Route::get('delete/{id}',[ProductController::class,'delete']);
 Route::get('productlist/{id}',[Productcontroller::class,'productlist']);
 Route::get('edit/{id}',[Productcontroller::class,'edit']);
-Route::get('delete/{id}',[ProductController::class,'delete']);
+Route::get('remove/{id}',[ProductController::class,'remove']);
 Route::post('update/{id}',[Productcontroller::class,'update']);
 

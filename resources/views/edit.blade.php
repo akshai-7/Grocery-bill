@@ -128,9 +128,12 @@
                             <td><input type="text" required name="taxamount[]" class="form-control taxamount" style="text-align:center;" id="taxamount" value="{{$user->taxamount}}"></td>
                             <td><input type="text" required name="total[]" class="form-control total" style="text-align:center;" id="total" value="{{$user->total}}"></td>
                             {{-- <td><input type="button" value="X" class="btn btn-danger btn-sm btn-row-remove" style="text-align:center;" id="del" value=""></td> --}}
-                            <td><a href="delete/{{$user->id}}" value="X" class="btn btn-danger btn-sm btn-row-remove" style="text-align:center;" id="del" value="">X</a></td>
+                            <td><a href="/remove/{{$user->id}}" name="remove[]" value="X" class="btn btn-danger btn-sm btn-row-remove" style="text-align:center;" id="del" value="">X</a></td>
+
                         </tr>
+
                         @endforeach
+                        {{-- @dd($user->id); --}}
                     </tbody>
                     <tfoot>
                     <tr class="new">
@@ -160,9 +163,9 @@
         var i=2;
         $("#btn-add-row").on('click',function(){
         i++
-        $("#row").append("<tr class='list'><td id='row_num "+i+"'><input type='text' required name='sno[]' class='form-control' value="+i+" style='text-align:center;'></td>'+'<td id='row_num "+i+"'><input type='text' required name='product_id[]' class='form-control' value="+i+" style='text-align:center;'></td>'+'<td><input type='text' required name='productname[]' class='form-control productname' style='text-align:center;'></td>'+' <td><input type='text' required name='price[]' class='form-control price' style='text-align:center;'></td>'+'<td><input type='text' required name='qty[]' class='form-control qty' style='text-align:center;'></td> '+' <td><input type='text' required name='subtotal[]' class='form-control subtotal' style='text-align:center;'></td>'+'<td><input type='text' required name='tax[]' class='form-control tax' style='text-align:center;'></td>'+'<td><input type='text' required name='taxamount[]' class='form-control taxamount' style='text-align:center;'></td> '+'<td><input type='text' required name='total[]' class='form-control total' style='text-align:center;'></td>'+'<td><input type='button' value='X' class='btn btn-danger btn-sm btn-row-remove' style='text-align:center;'></td></tr>");
+        $("#row").append("<tr class='list'><td id='row_num "+i+"'><input type='text' required name='sno[]' class='form-control' value="+i+" style='text-align:center;'></td>'+'<td id='row_num "+i+"'><input type='text'  name='product_id[]' class='form-control' value="+i+" style='text-align:center;'></td>'+'<td><input type='text' required name='productname[]' class='form-control productname' style='text-align:center;'></td>'+' <td><input type='text' required name='price[]' class='form-control price' style='text-align:center;'></td>'+'<td><input type='text' required name='qty[]' class='form-control qty' style='text-align:center;'></td> '+' <td><input type='text' required name='subtotal[]' class='form-control subtotal' style='text-align:center;'></td>'+'<td><input type='text' required name='tax[]' class='form-control tax' style='text-align:center;'></td>'+'<td><input type='text' required name='taxamount[]' class='form-control taxamount' style='text-align:center;'></td> '+'<td><input type='text' required name='total[]' class='form-control total' style='text-align:center;'></td>'+' <td><a href='/remove/{{$user->id}}' class='btn btn-danger btn-sm btn-row-remove' name='remove[]' style='text-align:center;' id='del' >X</a></td></tr>");
         });
-        // <td><input type="" name='product_id[]' class='form-control' style='text-align:center;' value="+i+" id=''></td>
+
 
 // <--Del row-->
         $("tbody").on("click",".btn-row-remove",function(){

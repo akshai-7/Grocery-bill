@@ -75,10 +75,9 @@ class ProductController extends Controller
     public function delete($id){
             $bills =  Bill::find($id);
             $bills->delete();
-            $user =  Product::find($id);
-            $user->delete();
             return redirect('/customerlist');
     }
+
 
     public function edit($bill_id){
 // dd($bill_id);
@@ -113,6 +112,11 @@ class ProductController extends Controller
 
 
     }
+    public function remove($id){
+         Product::find($id)->delete();
+        return redirect('/edit/{id}');
+
+    }
     public function update(Request $request,$id){
         // dd($request->all());
         $request->validate([
@@ -142,9 +146,9 @@ class ProductController extends Controller
 
         $data= $request->all();
         // dd($data);
-        if($data['productname']){
+
+
         foreach($data['productname'] as  $row => $value){
-        $product=Product::where('id',$data['product_id'][$row])->first();
         $data1=array(
         'bill_id'=>$bill->id,
         'productname'=> $data['productname'][$row],
@@ -155,13 +159,14 @@ class ProductController extends Controller
         'taxamount'=> $data['taxamount'][$row],
         'total'=> $data['total'][$row],
         );
-    //    Product::create($data1);
-       $product->update($data1);
 
-        }
-
-      }
-
+       if($data['product_id'][$row]){
+        $product=Product::where('id',$data['product_id'][$row])->first();
+        $product->update($data1);
+       }else{
+        Product::create($data1);
+       }
+     }
         return redirect('/customerlist');
     }
 
