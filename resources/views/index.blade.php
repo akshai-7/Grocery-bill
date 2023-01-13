@@ -164,8 +164,6 @@
 
 // <--Add row-->
 
-        // $("#btn-add-row").on('click',function(){
-        // $("#row").append("<tr class='list'><td><input type='text' required name='sno' class='form-control' value='' style='text-align:center;'></td><td><input type='text' required name='pname' class='form-control pname' style='text-align:center;'></td> <td><input type='text' required name='price' class='form-control price' style='text-align:center;'></td><td><input type='text' required name='qty' class='form-control qty' style='text-align:center;'></td><td><input type='text' required name='subtotal' class='form-control subtotal' style='text-align:center;'></td><td><input type='text' required name='tax' class='form-control tax' style='text-align:center;'></td><td><input type='text' required name='taxamount' class='form-control taxamount' style='text-align:center;'></td> <td><input type='text' required name='total' class='form-control total' style='text-align:center;'></td><td><input type='button' value='X' class='btn btn-danger btn-sm btn-row-remove' style='text-align:center;'></td></tr>");
         var i=2;
         $("#btn-add-row").on('click',function(){
         i++

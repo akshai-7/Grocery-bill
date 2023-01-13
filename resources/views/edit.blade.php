@@ -68,7 +68,8 @@
       </nav>
 </header>
 <section class="container">
-    <form action="{{url('update/'.$user->id)}}" method="POST" autocomplete="off">
+    <form action="{{url('/update/'.$user->id)}}" method="POST" autocomplete="off">
+
         @csrf
         <div class="box ">
                 <div class="col-md-5 ">
@@ -128,7 +129,7 @@
                             <td><input type="text" required name="taxamount[]" class="form-control taxamount" style="text-align:center;" id="taxamount" value="{{$user->taxamount}}"></td>
                             <td><input type="text" required name="total[]" class="form-control total" style="text-align:center;" id="total" value="{{$user->total}}"></td>
                             {{-- <td><input type="button" value="X" class="btn btn-danger btn-sm btn-row-remove" style="text-align:center;" id="del" value=""></td> --}}
-                            <td><a href="/remove/{{$user->id}}" name="remove[]" value="X" class="btn btn-danger btn-sm btn-row-remove" style="text-align:center;" id="del" value="">X</a></td>
+                            <td><a href="/remove/{{$user->id}}/{{$user->bill_id}}" name="remove[]" value="X" class="btn btn-danger btn-sm btn-row-remove" style="text-align:center;" id="del" value="">X</a></td>
 
                         </tr>
 
@@ -145,7 +146,7 @@
                     </tr>
                     </tfoot>
                     </table>
-                    <p align="left"><a href="" class="text-white">www.groceryshop.com</a></p>
+
                     <p align="right"><input type="submit" name="submit" value="Submit" class="btn btn-primary"></p>
                 </div>
             </div>
@@ -160,7 +161,7 @@
 
 // <--Add row-->
 
-        var i=2;
+        var i=0;
         $("#btn-add-row").on('click',function(){
         i++
         $("#row").append("<tr class='list'><td id='row_num "+i+"'><input type='text' required name='sno[]' class='form-control' value="+i+" style='text-align:center;'></td>'+'<td id='row_num "+i+"'><input type='text'  name='product_id[]' class='form-control' value="+i+" style='text-align:center;'></td>'+'<td><input type='text' required name='productname[]' class='form-control productname' style='text-align:center;'></td>'+' <td><input type='text' required name='price[]' class='form-control price' style='text-align:center;'></td>'+'<td><input type='text' required name='qty[]' class='form-control qty' style='text-align:center;'></td> '+' <td><input type='text' required name='subtotal[]' class='form-control subtotal' style='text-align:center;'></td>'+'<td><input type='text' required name='tax[]' class='form-control tax' style='text-align:center;'></td>'+'<td><input type='text' required name='taxamount[]' class='form-control taxamount' style='text-align:center;'></td> '+'<td><input type='text' required name='total[]' class='form-control total' style='text-align:center;'></td>'+' <td><a href='/remove/{{$user->id}}' class='btn btn-danger btn-sm btn-row-remove' name='remove[]' style='text-align:center;' id='del' >X</a></td></tr>");
@@ -242,7 +243,7 @@
 
 <footer class="bg-secondary ">
     <div class="footer bg-secondary">
-        <p>Footer</p>
+    <p align="left"><a href="" class="text-white">www.groceryshop.com</a></p>
       </div>
 
 </footer>

@@ -32,7 +32,7 @@
     .footer p{
         margin-right: 20px;
         margin-top: 20px;
-        margin-bottom: 10px
+        margin-bottom: 20px
     }
     .header{
         position: sticky;
@@ -86,7 +86,7 @@
     </div>
   </section>
   <footer class="bg-secondary">
-    <div class="footer bg-secondary">
+    <div class="footer">
         {{-- <p align="left"><a href="" class="text-white">www.groceryshop.com</a></p> --}}
         <p align="right"><a href="/print"><i class="fa-solid fa-print btn btn-primary"></i></a></p>
 

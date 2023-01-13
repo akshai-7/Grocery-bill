@@ -112,9 +112,10 @@ class ProductController extends Controller
 
 
     }
-    public function remove($id){
+    public function remove($id,$bill_id=false){
+        // dd($bill_id);
          Product::find($id)->delete();
-        return redirect('/edit/{id}');
+        return redirect('/edit/'.$bill_id);
 
     }
     public function update(Request $request,$id){
@@ -146,8 +147,6 @@ class ProductController extends Controller
 
         $data= $request->all();
         // dd($data);
-
-
         foreach($data['productname'] as  $row => $value){
         $data1=array(
         'bill_id'=>$bill->id,
