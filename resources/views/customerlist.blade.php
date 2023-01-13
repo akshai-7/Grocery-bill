@@ -37,20 +37,21 @@
     .header{
         position: sticky;
         top: 0;
+        background: gray;
     }
 </style>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg   bg-secondary">
             <div class="container-fluid">
-              <a class="navbar-brand nav" href="">Grocery shop</a>
+                <a class="navbar-brand nav" href=""><i class="fa-solid fa-cart-shopping"> Grocery shop </i></a>
             </div>
-            <div><a href="/" class="navbar-brand nav"><h5>LogOut</h5></a></div>
+            <div><a href="/" class="navbar-brand nav"><h5>LogOut  <i class="fa-solid fa-arrow-right-from-bracket"></i></h5></a></div>
           </nav>
     </header>
   <section>
     <div class="d-flex justify-content-center align-items-center col-md-5 mt-5">
-        <h3 class="text-primary">Customer Details</h3>
+        <h3 class="text-primary"> <i class="fa-solid fa-user"></i> Customer Details</h3>
     </div>
     <div class="d-flex justify-content-center align-items-center">
         <table class="table table-striped table-bordered col-md-5 mt-3" style="width:1000px">
@@ -86,7 +87,8 @@
   </section>
   <footer class="bg-secondary">
     <div class="footer bg-secondary">
-        <p align="right"><input type="submit" class="btn btn-primary"></p>
+        {{-- <p align="left"><a href="" class="text-white">www.groceryshop.com</a></p> --}}
+        <p align="right"><a href="/print"><i class="fa-solid fa-print btn btn-primary"></i></a></p>
 
       </div>
 

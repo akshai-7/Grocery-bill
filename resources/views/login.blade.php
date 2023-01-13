@@ -13,6 +13,8 @@
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
 </head>
 <style>
     body{
@@ -58,7 +60,10 @@
     }
     .nav{
     color: white;
-    height: 60px;
+
+}
+.nav1{
+    margin-right: 85%;
 }
 
     .footer {
@@ -73,11 +78,10 @@
 </style>
 <body>
     <header>
-        <nav class="bg-secondary">
-            <div class="container-fluid">
-              <a class="navbar-brand nav" href="">Grocery shop</a>
+        <nav class="navbar navbar-expand-lg   bg-secondary">
+            <div class="container-fluid nav1">
+              <a class="navbar-brand nav" href=""><i class="fa-solid fa-cart-shopping"> Grocery shop </i></a>
             </div>
-
           </nav>
     </header>
     <section>
@@ -104,7 +108,7 @@
     </section>
     <footer class="bg-secondary">
         <div class="footer bg-secondary">
-            <p>Footer</p>
+            <p align="left"><a href="" class="text-white">www.groceryshop.com</a></p>
           </div>
 
     </footer>

@@ -10,14 +10,18 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
 
 </head>
 <style>
     body{
-        font-family: 'Times New Roman', Times, serif
+        font-family: 'Times New Roman', Times, serif;
     }
     .nav{
     color: white;
+    position: sticky;
+    top: 0;
     }
     .container{
         margin-top: 40px;
@@ -52,15 +56,17 @@
     .header{
         position: sticky;
         top: 0;
+        background:gray;
+
     }
 </style>
 <body>
 <header>
     <nav class="navbar navbar-expand-lg   bg-secondary">
         <div class="container-fluid">
-          <a class="navbar-brand nav" href="">Grocery shop</a>
+          <a class="navbar-brand nav" href=""><i class="fa-solid fa-cart-shopping"> Grocery shop </i></a>
         </div>
-        <div><a href="/" class="navbar-brand nav"><h5>LogOut</h5></a></div>
+        <div><a href="/" class="navbar-brand nav"><h5>LogOut  <i class="fa-solid fa-arrow-right-from-bracket"></i></h5></a></div>
       </nav>
 </header>
 <section class="container">
@@ -68,33 +74,33 @@
         @csrf
         <div class="box ">
                 <div class="col-md-5 ">
-                    <h5 class="text-primary">Bill Details</h5>
+                    <h5 class="text-primary"> <i class="fa-solid fa-money-bill"></i> Bill Details</h5>
                     <div class="form-group col-sm-5">
-                        <label>Bill No</label>
+                        <label>Bill No </label>
                         <input type="text" name="billno" required class="form-control">
                     </div>
                     <div class="form-group col-sm-5 ">
-                        <label for="">Date</label>
+                        <label for=""> <i class="fa-solid fa-calendar-days"></i>  Date </label>
                         <input type="text" name="date" id="date" required class="form-control">
                     </div>
                     <hr class="col-sm-7">
-                           <h5 class="text-primary">Customer Details</h5>
+                           <h5 class="text-primary"> <i class="fa-solid fa-user"></i> Customer Details</h5>
                             <div class="form-group col-sm-8">
-                                <label for="">Name</label>
+                                <label for=""> <i class="fa-solid fa-user"></i>  Name</label>
                                 <input type="text" name="name" required class="form-control">
                             </div>
                             <div class="form-group col-sm-8">
-                                <label for="">Address</label>
+                                <label for=""> <i class="fa-solid fa-location-dot"></i>  Address</label>
                                 <input type="text" name="address" required class="form-control">
                             </div>
                             <div class="form-group col-sm-8">
-                                <label for="">Mobile</label>
+                                <label for=""> <i class="fa-solid fa-phone"></i> Mobile</label>
                                 <input type="text" name="mobile" required class="form-control">
                             </div>
                 </div>
             <div>
                 <div class="box1">
-                    <h5 class="text-primary">Product Details</h5>
+                    <h5 class="text-primary"> <i class="fa-solid fa-basket-shopping"></i></i> Product Details</h5>
                     <table class="table table-bordered">
                     <thead class="header">
                         <tr>
@@ -104,7 +110,7 @@
                             <th style="text-align:center;" class="col-md-1">Qty</th>
                             <th style="text-align:center;" class="col-md-2">Sub Total</th>
                             <th style="text-align:center;" class="col-md-1">Tax(%)</th>
-                            <th style="text-align:center;" class="col-md-1">Tax-amount</th>
+                            <th style="text-align:center;" class="col-md-1">Tax amount</th>
                             <th style="text-align:center;" class="col-md-2">Total</th>
                             <th><input type="button" value="+" class=" btn btn-primary btn-sm" id=btn-add-row></th>
                         </tr>
@@ -120,6 +126,7 @@
                             <td><input type="text" required name="tax[]" class="form-control tax" style="text-align:center;" id="tax"></td>
                             <td><input type="text" required name="taxamount[]" class="form-control taxamount" style="text-align:center;" id="taxamount"></td>
                             <td><input type="text" required name="total[]" class="form-control total" style="text-align:center;" id="total"></td>
+                            <td></td>
                         </tr>
                         <tr class="list">
                             <td><input type="text" required name="sno[]" class="form-control" style="text-align:center;" value="2" id="sno"></td>
@@ -138,7 +145,7 @@
                     <tr class="new">
                         <td colspan="6"></td>
                         <td style="text-align:center;"><B>Grand Total</B></td>
-                        <td><input type="text" name="grandtotal" id="grand_total" class="form-control" style="text-align:center;"  required></td>
+                        <td><input type="text" name="grandtotal" id="grand_total" class="form-control" style="text-align:center;" value="" required></td>
                         <td></td>
                     </tr>
                     </tfoot>
@@ -240,7 +247,7 @@
 
 <footer class="bg-secondary">
     <div class="footer bg-secondary">
-        <p>Footer</p>
+        <p align="left"><a href="" class="text-white">www.groceryshop.com</a></p>
       </div>
 
 </footer>

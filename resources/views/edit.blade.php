@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
 
 </head>
 <style>
@@ -49,14 +51,20 @@
        color: white;
        text-align: center;
     }
+    .header{
+        position: sticky;
+        top: 0;
+        background:gray;
+
+    }
 </style>
 <body>
 <header>
     <nav class="navbar navbar-expand-lg   bg-secondary">
         <div class="container-fluid">
-          <a class="navbar-brand nav" href="">Grocery shop</a>
+            <a class="navbar-brand nav" href=""><i class="fa-solid fa-cart-shopping"> Grocery shop </i></a>
         </div>
-        <div><a href="/" class="navbar-brand nav"><h5>LogOut</h5></a></div>
+        <div><a href="/" class="navbar-brand nav"><h5>LogOut <i class="fa-solid fa-arrow-right-from-bracket"></i></h5></a></div>
       </nav>
 </header>
 <section class="container">
@@ -64,39 +72,39 @@
         @csrf
         <div class="box ">
                 <div class="col-md-5 ">
-                    <h5 class="text-primary">Bill Details</h5>
+                    <h5 class="text-primary"> <i class="fa-solid fa-money-bill"></i> Bill Details</h5>
                     <div class="form-group col-sm-5">
                         <label>Bill No</label>
                         <input type="text" name="billno" required class="form-control" value="{{$user->bill_number}}">
                     </div>
                     <div class="form-group col-sm-5 ">
-                        <label for="">Date</label>
+                        <label for=""> <i class="fa-solid fa-calendar-days"></i>  Date</label>
                         <input type="text" name="date" id="date" required class="form-control" value="{{$user->date}}">
                     </div>
                     <hr class="col-sm-7">
-                           <h5 class="text-primary">Customer Details</h5>
+                           <h5 class="text-primary"> <i class="fa-solid fa-user"></i> Customer Details</h5>
                             <div class="form-group col-sm-8">
-                                <label for="">Name</label>
+                                <label for=""> <i class="fa-solid fa-user"></i>  Name</label>
                                 <input type="text" name="name" required class="form-control" value="{{$user->name}}">
                             </div>
                             <div class="form-group col-sm-8">
-                                <label for="">Address</label>
+                                <label for=""> <i class="fa-solid fa-location-dot"></i>  Address</label>
                                 <input type="text" name="address" required class="form-control" value="{{$user->address}}">
                             </div>
                             <div class="form-group col-sm-8">
-                                <label for="">Mobile</label>
+                                <label for=""> <i class="fa-solid fa-phone"></i>  Mobile<label>
                                 <input type="text" name="mobile" required class="form-control" value="{{$user->mobile}}">
                             </div>
                 </div>
             <div>
                 <div class="box1">
-                    <h5 class="text-primary">Product Details</h5>
+                    <h5 class="text-primary"> <i class="fa-solid fa-basket-shopping"></i> Product Details</h5>
                     <table class="table table-bordered">
-                    <thead>
+                    <thead class="header">
                         <tr>
                             <th class="col-md-1" style="text-align:center;">S.no</th>
                             <th class="col-md-1" style="text-align:center;">Product Id</th>
-                            <th style="text-align:center;" class="col-md-3">Product</th>
+                            <th style="text-align:center;" class="col-md-2">Product</th>
                             <th style="text-align:center;" class="col-md-1">Price</th>
                             <th style="text-align:center;" class="col-md-1">Qty</th>
                             <th style="text-align:center;" class="col-md-2">Sub Total</th>
@@ -119,19 +127,22 @@
                             <td><input type="text" required name="tax[]" class="form-control tax" style="text-align:center;" id="tax" value="{{$user->tax}}"></td>
                             <td><input type="text" required name="taxamount[]" class="form-control taxamount" style="text-align:center;" id="taxamount" value="{{$user->taxamount}}"></td>
                             <td><input type="text" required name="total[]" class="form-control total" style="text-align:center;" id="total" value="{{$user->total}}"></td>
-                            <td><input type="button" value="X" class="btn btn-danger btn-sm btn-row-remove" style="text-align:center;" id="del" value=""></td>
+                            {{-- <td><input type="button" value="X" class="btn btn-danger btn-sm btn-row-remove" style="text-align:center;" id="del" value=""></td> --}}
+                            <td><a href="delete/{{$user->id}}" value="X" class="btn btn-danger btn-sm btn-row-remove" style="text-align:center;" id="del" value="">X</a></td>
                         </tr>
                         @endforeach
                     </tbody>
                     <tfoot>
                     <tr class="new">
-                        <td colspan="6"></td>
+                        <td colspan="7"></td>
+
                         <td style="text-align:center;"><B>Grand Total</B></td>
                         <td><input type="text" name="grandtotal" id="grand_total" class="form-control" style="text-align:center;"  required></td>
                         <td></td>
                     </tr>
                     </tfoot>
                     </table>
+                    <p align="left"><a href="" class="text-white">www.groceryshop.com</a></p>
                     <p align="right"><input type="submit" name="submit" value="Submit" class="btn btn-primary"></p>
                 </div>
             </div>
@@ -226,7 +237,7 @@
 </script>
 </section>
 
-<footer class="bg-secondary">
+<footer class="bg-secondary ">
     <div class="footer bg-secondary">
         <p>Footer</p>
       </div>

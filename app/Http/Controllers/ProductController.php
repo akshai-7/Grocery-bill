@@ -75,8 +75,11 @@ class ProductController extends Controller
     public function delete($id){
             $bills =  Bill::find($id);
             $bills->delete();
+            $user =  Product::find($id);
+            $user->delete();
             return redirect('/customerlist');
     }
+
     public function edit($bill_id){
 // dd($bill_id);
 
