@@ -40,11 +40,17 @@ class ProductController extends Controller
         $bill->grandtotal=$request['grandtotal'];
         $bill->save();
 
+
+
         $data= $request->all();
         // dd($data);
 
+        // return response()->json(['status' => 'success']);
+        return response()->json($data);
+
         if($data['productname']){
-        foreach($data['productname'] as  $row => $value){
+
+        foreach($data['productname'] as $row => $value){
 
         $data1=array(
         'bill_id'=>$bill->id,
@@ -59,17 +65,21 @@ class ProductController extends Controller
         Product::create($data1);
         }
       }
-        return redirect('/customerlist');
+        // return redirect('/customerlist');
+
+        return response()->json(['status' => 'success']);
     }
 
     public function customerlist(){
             $bills= Bill::all();
-            return view('/customerlist',['bills'=>$bills]);
+            // return view('/customerlist',['bills'=>$bills]);
+            return response()->json($bills);
     }
 
     public function productlist($id){
             $users = Bill::with('product')->whereId($id)->first();
             return view('/productlist',['users'=>$users] );
+            // return response()->json($users);
     }
 
     public function delete($id){
