@@ -41,17 +41,20 @@ class ProductController extends Controller
         $bill->save();
 
 
+        // $user = new Product();
+        // $user->bill_id= $bill-> id;
+        // $user->productname=$request['productname'];
+        // $user->price=$request['price'];
+        // $user->qty=$request['qty'];
+        // $user->subtotal=$request['subtotal'];
+        // $user->tax=$request['tax'];
+        // $user->taxamount=$request['taxamount'];
+        // $user->total=$request['total'];
+        // $user->save();
 
         $data= $request->all();
-        // dd($data);
-
-        // return response()->json(['status' => 'success']);
-        return response()->json($data);
-
         if($data['productname']){
-
         foreach($data['productname'] as $row => $value){
-
         $data1=array(
         'bill_id'=>$bill->id,
         'productname'=> $data['productname'][$row],
@@ -66,8 +69,7 @@ class ProductController extends Controller
         }
       }
         // return redirect('/customerlist');
-
-        return response()->json(['status' => 'success']);
+        return response()->json($data);
     }
 
     public function customerlist(){
@@ -78,8 +80,8 @@ class ProductController extends Controller
 
     public function productlist($id){
             $users = Bill::with('product')->whereId($id)->first();
-            return view('/productlist',['users'=>$users] );
-            // return response()->json($users);
+            // return view('/productlist',['users'=>$users] );
+            return response()->json($users);
     }
 
     public function delete($id){
@@ -118,13 +120,14 @@ class ProductController extends Controller
         // $user= Bill::find($bill_id);
 
         // dd($user);
-        return view ('/edit',['user'=>$user]);
+        // return view ('/edit',['user'=>$user]);
+        return response()->json($user);
 
 
     }
     public function remove($id,$bill_id=false){
         // dd($bill_id);
-         Product::find($id)->delete();
+        Product::find($id)->delete();
         return redirect('/edit/'.$bill_id);
 
     }
@@ -176,7 +179,9 @@ class ProductController extends Controller
         Product::create($data1);
        }
      }
-        return redirect('/customerlist');
+        // return redirect('/customerlist');
+        return response()->json($data1);
+
     }
 
 

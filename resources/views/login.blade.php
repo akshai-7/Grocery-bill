@@ -108,7 +108,7 @@
     </section>
     <footer class="bg-secondary">
         <div class="footer bg-secondary">
-            <p align="left"><a href="" class="text-white">www.groceryshop.com</a></p>
+            <p align="left"><a href="/" class="text-white">www.groceryshop.com</a></p>
           </div>
 
     </footer>
