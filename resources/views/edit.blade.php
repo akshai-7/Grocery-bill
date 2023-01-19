@@ -81,7 +81,7 @@
                             <label for=""> <i class="fa-solid fa-calendar-days"></i>  Date</label>
                             <input type="text" name="date" id="date" required class="form-control" value="{{$user->date}}">
                         </div>
-                        <hr class="col-sm-7">
+                            <hr class="col-sm-7">
                             <h5 class="text-primary"> <i class="fa-solid fa-user"></i> Customer Details</h5>
                                 <div class="form-group col-sm-8">
                                     <label for=""> <i class="fa-solid fa-user"></i>  Name</label>
@@ -156,7 +156,7 @@
 
         // <--Add row-->
 
-                var i=1;
+                var i=2;
                 $("#btn-add-row").on('click',function(){
                 i++
                 $("#row").append("<tr class='list'><td id='row_num "+i+"'><input type='text' required name='sno[]' class='form-control' value="+0+" style='text-align:center;'></td>'+'<td id='row_num "+i+"'><input type='text'  name='product_id[]' class='form-control' value="+0+" style='text-align:center;'></td>'+'<td><input type='text' required name='productname[]' class='form-control productname' style='text-align:center;'></td>'+' <td><input type='text' required name='price[]' class='form-control price' style='text-align:center;'></td>'+'<td><input type='text' required name='qty[]' class='form-control qty' style='text-align:center;'></td> '+' <td><input type='text' required name='subtotal[]' class='form-control subtotal' style='text-align:center;'></td>'+'<td><input type='text' required name='tax[]' class='form-control tax' style='text-align:center;'></td>'+'<td><input type='text' required name='taxamount[]' class='form-control taxamount' style='text-align:center;'></td> '+'<td><input type='text' required name='total[]' class='form-control total' style='text-align:center;'></td>'+' <td><a href='/remove/{{$user->id}}/{{$user->bill_id}}' class='btn btn-danger btn-sm btn-row-remove' name='remove[]' style='text-align:center;' id='del' >X</a></td></tr>");
@@ -235,7 +235,6 @@
                 });
         </script>
     </section>
-
     <footer class="bg-secondary ">
         <div class="footer bg-secondary">
         <p align="left"><a href="" class="text-white">www.groceryshop.com</a></p>

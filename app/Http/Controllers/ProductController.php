@@ -68,20 +68,20 @@ class ProductController extends Controller
         Product::create($data1);
         }
       }
-        // return redirect('/customerlist');
-        return response()->json($data);
+        return redirect('/customerlist');
+        // return response()->json($data);
     }
 
     public function customerlist(){
             $bills= Bill::all();
-            // return view('/customerlist',['bills'=>$bills]);
-            return response()->json($bills);
+            return view('/customerlist',['bills'=>$bills]);
+            // return response()->json($bills);
     }
 
     public function productlist($id){
             $users = Bill::with('product')->whereId($id)->first();
-            // return view('/productlist',['users'=>$users] );
-            return response()->json($users);
+            return view('/productlist',['users'=>$users] );
+            // return response()->json($users);
     }
 
     public function delete($id){
@@ -121,7 +121,7 @@ class ProductController extends Controller
 
         // dd($user);
         return view ('/edit',['user'=>$user]);
-        return response()->json($user);
+        // return response()->json($user);
 
 
     }
@@ -129,7 +129,6 @@ class ProductController extends Controller
         // dd($bill_id);
         Product::find($id)->delete();
         return redirect('/edit/'.$bill_id);
-
     }
     public function update(Request $request,$id){
         // dd($request->all());
@@ -179,8 +178,8 @@ class ProductController extends Controller
         Product::create($data1);
        }
      }
-        // return redirect('/customerlist');
-        return response()->json($data1);
+        return redirect('/customerlist');
+        // return response()->json($data1);
 
     }
 

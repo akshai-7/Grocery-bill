@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BIlling</title>
+    <title>Billing</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
@@ -42,12 +42,12 @@
             <div class="container-fluid">
                 <a class="navbar-brand nav" href=""><i class="fa-solid fa-cart-shopping"> Grocery shop </i></a>
             </div>
-            <div><a href="/" class="navbar-brand nav"><h5>LogOut  <i class="fa-solid fa-arrow-right-from-bracket"></i></h5></a></div>
+            <div><a href="/" class="navbar-brand nav"><h5>LogOut<i class="fa-solid fa-arrow-right-from-bracket"></i></h5></a></div>
           </nav>
     </header>
     <section>
         <div class="d-flex justify-content-center align-items-center col-md-5 mt-5">
-            <h3 class="text-primary"> <i class="fa-solid fa-basket-shopping"></i>  Product Details</h3>
+            <h3 class="text-primary"> <i class="fa-solid fa-basket-shopping"></i>Product Details</h3>
         </div>
         <div class="d-flex justify-content-center align-items-center">
             <table class="table table-striped table-bordered col-md-5 mt-3" style="width:1000px">

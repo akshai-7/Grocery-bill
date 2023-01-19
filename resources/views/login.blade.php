@@ -91,7 +91,7 @@
                     <form role="form" action="/index" method="POST">
                         @csrf
                             <div class=" text-primary">
-                                <h2>Login</h2>
+                                <h2> <i class="fa-solid fa-user"></i>  Login</h2>
                             </div><hr>
                             <div class="input-container">
                                 <i class="fa fa-envelope icon bg-primary"></i>
@@ -102,11 +102,16 @@
                                 <input class="input-field form-control" type="password" placeholder="Password" name="password">
                             </div>
                             <hr>
-                            <p align="center" ><input type="submit" name="submit" value="Login" class="btn btn-primary"></p>
+                            <p align="left"><input type="submit" name="submit" value="Login" class="btn btn-primary"></p>
+
+
+
                     </form>
                 </div>
             </div>
          </div>
+
+
     </section>
     <footer class="bg-secondary">
         <div class="footer bg-secondary">
