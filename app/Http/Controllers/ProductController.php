@@ -120,7 +120,7 @@ class ProductController extends Controller
         // $user= Bill::find($bill_id);
 
         // dd($user);
-        // return view ('/edit',['user'=>$user]);
+        return view ('/edit',['user'=>$user]);
         return response()->json($user);
 
 

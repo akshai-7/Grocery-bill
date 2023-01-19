@@ -45,54 +45,46 @@
             <div><a href="/" class="navbar-brand nav"><h5>LogOut  <i class="fa-solid fa-arrow-right-from-bracket"></i></h5></a></div>
           </nav>
     </header>
-  <section>
-    <div class="d-flex justify-content-center align-items-center col-md-5 mt-5">
-        <h3 class="text-primary"> <i class="fa-solid fa-basket-shopping"></i>  Product Details</h3>
-    </div>
-    <div class="d-flex justify-content-center align-items-center">
-        <table class="table table-striped table-bordered col-md-5 mt-3" style="width:1000px">
-            <thead class="header">
-                <th style="text-align:center;">S.No</th>
-                <th style="text-align:center;">Product Name </th>
-                <th style="text-align:center;">Price</th>
-                <th style="text-align:center;">Qty</th>
-                <th style="text-align:center;">Subtotal</th>
-                <th style="text-align:center;">Tax</th>
-                <th style="text-align:center;">Tax Amount</th>
-                <th style="text-align:center;">Total</th>
-
-
-
-            <tbody>
-
-                 @foreach ($users->product as $user )
-                <tr>
-                    <td style="text-align:center;">{{$loop->iteration}}</td>
-                    <td style="text-align:center;">{{$user->productname}}</td>
-                    <td style="text-align:center;">{{$user->price}}</td>
-                    <td style="text-align:center;">{{$user->qty}}</td>
-                    <td style="text-align:center;">{{$user->subtotal}}</td>
-                    <td style="text-align:center;">{{$user->tax}}</td>
-                    <td style="text-align:center;">{{$user->taxamount}}</td>
-                    <td style="text-align:center;">{{$user->total}}</td>
-                </tr>
-
-                 @endforeach
-
-            </tbody>
-
-        </table>
-
-    </div>
-  </section>
-  <footer class="bg-secondary">
-    <div class="footer ">
-        <p align="right"><a href="/print"><i class="fa-solid fa-print btn btn-primary"></i></a>
-         <td style="text-align:center;"><a href="/edit/{{$user->bill_id}}"><i class="fa-solid fa-pen-to-square btn btn-success"></i></a></td>
-        </p>
-      </div>
-
-</footer>
+    <section>
+        <div class="d-flex justify-content-center align-items-center col-md-5 mt-5">
+            <h3 class="text-primary"> <i class="fa-solid fa-basket-shopping"></i>  Product Details</h3>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            <table class="table table-striped table-bordered col-md-5 mt-3" style="width:1000px">
+                <thead class="header">
+                    <th style="text-align:center;">S.No</th>
+                    <th style="text-align:center;">Product Name </th>
+                    <th style="text-align:center;">Price</th>
+                    <th style="text-align:center;">Qty</th>
+                    <th style="text-align:center;">Subtotal</th>
+                    <th style="text-align:center;">Tax</th>
+                    <th style="text-align:center;">Tax Amount</th>
+                    <th style="text-align:center;">Total</th>
+                </thead>
+                <tbody>
+                    @foreach ($users->product as $user )
+                        <tr>
+                            <td style="text-align:center;">{{$loop->iteration}}</td>
+                            <td style="text-align:center;">{{$user->productname}}</td>
+                            <td style="text-align:center;">{{$user->price}}</td>
+                            <td style="text-align:center;">{{$user->qty}}</td>
+                            <td style="text-align:center;">{{$user->subtotal}}</td>
+                            <td style="text-align:center;">{{$user->tax}}</td>
+                            <td style="text-align:center;">{{$user->taxamount}}</td>
+                            <td style="text-align:center;">{{$user->total}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <footer class="bg-secondary">
+        <div class="footer ">
+            <p align="right"><a href="/print"><i class="fa-solid fa-print btn btn-primary"></i></a>
+            <td style="text-align:center;"><a href="/edit/{{$user->bill_id}}"><i class="fa-solid fa-pen-to-square btn btn-success"></i></a></td>
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
 

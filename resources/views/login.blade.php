@@ -90,7 +90,9 @@
                 <div class="col-md-10 box">
                     <form role="form" action="/index" method="POST">
                         @csrf
-                        <div class=" text-primary"><h2>Login</h2></div><hr>
+                            <div class=" text-primary">
+                                <h2>Login</h2>
+                            </div><hr>
                             <div class="input-container">
                                 <i class="fa fa-envelope icon bg-primary"></i>
                                 <input class="input-field form-control" type="text" placeholder="Enter Email" name="email">
@@ -101,7 +103,7 @@
                             </div>
                             <hr>
                             <p align="center" ><input type="submit" name="submit" value="Login" class="btn btn-primary"></p>
-                        </form>
+                    </form>
                 </div>
             </div>
          </div>
@@ -109,8 +111,7 @@
     <footer class="bg-secondary">
         <div class="footer bg-secondary">
             <p align="left"><a href="/" class="text-white">www.groceryshop.com</a></p>
-          </div>
-
+        </div>
     </footer>
 </body>
 </html>
