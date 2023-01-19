@@ -102,16 +102,11 @@
                                 <input class="input-field form-control" type="password" placeholder="Password" name="password">
                             </div>
                             <hr>
-                            <p align="left"><input type="submit" name="submit" value="Login" class="btn btn-primary"></p>
-
-
-
+                            <p align="left"><input type="submit" name="submit" value="Login" class="btn btn-secondary"></p>
                     </form>
                 </div>
             </div>
          </div>
-
-
     </section>
     <footer class="bg-secondary">
         <div class="footer bg-secondary">

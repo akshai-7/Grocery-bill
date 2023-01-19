@@ -47,7 +47,7 @@
     </header>
     <section>
         <div class="d-flex justify-content-center align-items-center col-md-5 mt-5">
-            <h3 class="text-primary"> <i class="fa-solid fa-basket-shopping"></i>Product Details</h3>
+            <h3 class="text-primary"> <i class="fa-solid fa-basket-shopping"></i> Product Details</h3>
         </div>
         <div class="d-flex justify-content-center align-items-center">
             <table class="table table-striped table-bordered col-md-5 mt-3" style="width:1000px">

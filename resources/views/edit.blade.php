@@ -98,7 +98,7 @@
                     </div>
                 <div>
                     <div class="box1">
-                        <h5 class="text-primary"> <i class="fa-solid fa-basket-shopping"></i>Product Details</h5>
+                        <h5 class="text-primary"> <i class="fa-solid fa-basket-shopping"></i> Product Details</h5>
                         <table class="table table-bordered">
                             <thead class="header">
                                 <tr>

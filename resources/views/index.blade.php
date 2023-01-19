@@ -92,7 +92,7 @@
                                     <input type="text" name="address" required class="form-control">
                                 </div>
                                 <div class="form-group col-sm-8">
-                                    <label for=""> <i class="fa-solid fa-phone"></i> Mobile</label>
+                                    <label for=""><i class="fa-solid fa-phone"></i> Mobile</label>
                                     <input type="text" name="mobile" required class="form-control">
                                 </div>
                     </div>
