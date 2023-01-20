@@ -46,11 +46,11 @@
           </nav>
     </header>
     <section>
-        <div class="d-flex justify-content-center align-items-center col-md-5 mt-5">
+        <div class="d-flex justify-content-center align-items-center col-md-6 mt-5">
             <h3 class="text-primary"> <i class="fa-solid fa-basket-shopping"></i> Product Details</h3>
         </div>
         <div class="d-flex justify-content-center align-items-center">
-            <table class="table table-striped table-bordered col-md-5 mt-3" style="width:1000px">
+            <table class="table table-striped table-bordered col-md-5 mt-3" style="width:900px">
                 <thead class="header">
                     <th style="text-align:center;">S.No</th>
                     <th style="text-align:center;">Product Name </th>
@@ -78,8 +78,8 @@
             </table>
         </div>
     </section>
-    <footer class="bg-secondary">
-        <div class="footer ">
+    <footer class="bg-secondary ">
+        <div class="footer mb-3 ">
             <p align="right"><a href="/print"><i class="fa-solid fa-print btn btn-primary"></i></a>
             <td style="text-align:center;"><a href="/edit/{{$user->bill_id}}"><i class="fa-solid fa-pen-to-square btn btn-success"></i></a></td>
             </p>

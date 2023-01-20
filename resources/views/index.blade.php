@@ -72,34 +72,34 @@
             @csrf
             <div class="box ">
                     <div class="col-md-5 ">
-                        <h5 class="text-primary"> <i class="fa-solid fa-money-bill"></i> Bill Details</h5>
-                        <div class="form-group col-sm-5">
-                            <label>Bill No </label>
+                        <h5 class="text-primary mb-3"> <i class="fa-solid fa-money-bill"></i> Bill Details</h5>
+                        <div class="form-group col-sm-5 mb-3">
+                            <label class="mb-2">Bill No </label>
                             <input type="text" name="billno" required class="form-control">
                         </div>
-                        <div class="form-group col-sm-5 ">
-                            <label for=""> <i class="fa-solid fa-calendar-days"></i>  Date </label>
+                        <div class="form-group col-sm-5 mb-3">
+                            <label class="mb-2"> <i class="fa-solid fa-calendar-days "></i>  Date </label>
                             <input type="text" name="date" id="date" required class="form-control">
                         </div>
-                        <hr class="col-sm-7">
-                            <h5 class="text-primary"> <i class="fa-solid fa-user"></i> Customer Details</h5>
-                                <div class="form-group col-sm-8">
-                                    <label for=""> <i class="fa-solid fa-user"></i>  Name</label>
+                        {{-- <hr class="col-sm-7 "> --}}
+                            <h5 class="text-primary mb-3 mt-4" > <i class="fa-solid fa-user"></i> Customer Details</h5>
+                                <div class="form-group col-sm-8 mb-3">
+                                    <label class="mb-2"> <i class="fa-solid fa-user "></i>  Name</label>
                                     <input type="text" name="name" required class="form-control">
                                 </div>
-                                <div class="form-group col-sm-8">
-                                    <label for=""> <i class="fa-solid fa-location-dot"></i>  Address</label>
+                                <div class="form-group col-sm-8 mb-3">
+                                    <label class="mb-2"> <i class="fa-solid fa-location-dot "></i>  Address</label>
                                     <input type="text" name="address" required class="form-control">
                                 </div>
-                                <div class="form-group col-sm-8">
-                                    <label for=""><i class="fa-solid fa-phone"></i> Mobile</label>
+                                <div class="form-group col-sm-8 mb-3">
+                                    <label class="mb-2"><i class="fa-solid fa-phone "></i> Mobile</label>
                                     <input type="text" name="mobile" required class="form-control">
                                 </div>
                     </div>
                 <div>
                     <div class="box1">
                         <h5 class="text-primary"> <i class="fa-solid fa-basket-shopping"></i></i> Product Details</h5>
-                        <table class="table table-bordered">
+                        <table class="table table-bordered mt-4">
                         <thead class="header">
                             <tr>
                                 <th class="col-md-1" style="text-align:center;">S.no</th>

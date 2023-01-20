@@ -40,7 +40,7 @@
         justify-content: center;
         background: white;
         border-radius: 5px;
-        box-shadow: 3px px 3px 3px rgba(0,0,0,0.30);
+        box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.30);
 
 
     }
@@ -95,22 +95,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 box">
-                    <form role="form" action="/index" method="POST">
+                    <form action="/index" method="POST">
                         @csrf
-                            <div class=" text-primary login">
+                            <div class="text-primary login">
                                 <h2 class="log"> <i class="fa-solid fa-user"></i>  Login</h2>
                             </div><hr>
-
                             <div class="input-container">
                                 <i class="fa-solid fa-user icon bg-primary"></i>
                                 <input class="input-field form-control" type="text" placeholder="Enter Email" name="email">
                             </div>
-                            <div class="input-container ">
+                            <div class="input-container">
                                 <i class="fa fa-key icon bg-primary"></i>
                                 <input class="input-field form-control" type="password" placeholder="Password" name="password">
                             </div>
                             <hr>
-                            <p align="left"><input type="submit" name="submit" value="Login" class="btn btn-secondary "></p>
+                            <p align="left"><input type="submit" name="submit" value="Login" class="btn btn-secondary"></p>
                     </form>
                 </div>
             </div>

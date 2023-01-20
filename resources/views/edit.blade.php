@@ -60,9 +60,9 @@
 </style>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg   bg-secondary">
+        <nav class="navbar navbar-expand-lg bg-secondary">
             <div class="container-fluid">
-                <a class="navbar-brand nav" href=""><i class="fa-solid fa-cart-shopping"> Grocery shop </i></a>
+                <a class="navbar-brand nav" href=""><i class="fa-solid fa-cart-shopping"> Grocery shop</i></a>
             </div>
             <div><a href="/" class="navbar-brand nav"><h5>LogOut <i class="fa-solid fa-arrow-right-from-bracket"></i></h5></a></div>
         </nav>
@@ -72,34 +72,34 @@
             @csrf
             <div class="box ">
                     <div class="col-md-5 ">
-                        <h5 class="text-primary"> <i class="fa-solid fa-money-bill"></i> Bill Details</h5>
-                        <div class="form-group col-sm-5">
-                            <label>Bill No</label>
+                        <h5 class="text-primary mb-3"> <i class="fa-solid fa-money-bill"></i>Bill Details</h5>
+                        <div class="form-group col-sm-5 mb-3">
+                            <label class="mb-2">Bill No</label>
                             <input type="text" name="billno" required class="form-control" value="{{$user->bill_number}}">
                         </div>
-                        <div class="form-group col-sm-5 ">
-                            <label for=""> <i class="fa-solid fa-calendar-days"></i>  Date</label>
+                        <div class="form-group col-sm-5 mb-3">
+                            <label class="mb-2"> <i class="fa-solid fa-calendar-days mb-2"></i>  Date</label>
                             <input type="text" name="date" id="date" required class="form-control" value="{{$user->date}}">
                         </div>
-                            <hr class="col-sm-7">
-                            <h5 class="text-primary"> <i class="fa-solid fa-user"></i> Customer Details</h5>
-                                <div class="form-group col-sm-8">
-                                    <label for=""> <i class="fa-solid fa-user"></i>  Name</label>
+                            {{-- <hr class="col-sm-7"> --}}
+                            <h5 class="text-primary mb-3 mt-4" > <i class="fa-solid fa-user mb-2"></i> Customer Details</h5>
+                                <div class="form-group col-sm-8 mb-3">
+                                    <label  class="mb-2"> <i class="fa-solid fa-user"></i>  Name</label>
                                     <input type="text" name="name" required class="form-control" value="{{$user->name}}">
                                 </div>
-                                <div class="form-group col-sm-8">
-                                    <label for=""> <i class="fa-solid fa-location-dot"></i>  Address</label>
+                                <div class="form-group col-sm-8 mb-3">
+                                    <label class="mb-2"> <i class="fa-solid fa-location-dot"></i>  Address</label>
                                     <input type="text" name="address" required class="form-control" value="{{$user->address}}">
                                 </div>
-                                <div class="form-group col-sm-8">
-                                    <label for=""> <i class="fa-solid fa-phone"></i>  Mobile<label>
+                                <div class="form-group col-sm-8 mb-3">
+                                    <label  class="mb-2"> <i class="fa-solid fa-phone mb-2"></i>  Mobile<label>
                                     <input type="text" name="mobile" required class="form-control" value="{{$user->mobile}}">
                                 </div>
                     </div>
                 <div>
                     <div class="box1">
                         <h5 class="text-primary"> <i class="fa-solid fa-basket-shopping"></i> Product Details</h5>
-                        <table class="table table-bordered">
+                        <table class="table table-bordered mt-4">
                             <thead class="header">
                                 <tr>
                                     <th class="col-md-1" style="text-align:center;">S.no</th>
@@ -162,11 +162,10 @@
                 $("#row").append("<tr class='list'><td id='row_num "+i+"'><input type='text' required name='sno[]' class='form-control' value="+i+" style='text-align:center;'></td>'+'<td id='row_num "+i+"'><input type='text'  name='product_id[]' class='form-control' value="+0+" style='text-align:center;'></td>'+'<td><input type='text' required name='productname[]' class='form-control productname' style='text-align:center;'></td>'+' <td><input type='text' required name='price[]' class='form-control price' style='text-align:center;'></td>'+'<td><input type='text' required name='qty[]' class='form-control qty' style='text-align:center;'></td> '+' <td><input type='text' required name='subtotal[]' class='form-control subtotal' style='text-align:center;'></td>'+'<td><input type='text' required name='tax[]' class='form-control tax' style='text-align:center;'></td>'+'<td><input type='text' required name='taxamount[]' class='form-control taxamount' style='text-align:center;'></td> '+'<td><input type='text' required name='total[]' class='form-control total' style='text-align:center;'></td>'+' <td><a href='/remove/{{$user->id}}/{{$user->bill_id}}' class='btn btn-danger btn-sm btn-row-remove' name='remove[]' style='text-align:center;' id='del' >X</a></td></tr>");
         });
 
-
         // <--Del row-->
                 $("tbody").on("click",".btn-row-remove",function(){
                 alert("Are You Sure?");
-                $("tbody").closest('tr').remove();
+                $(this).closest('tr').remove();
                 grand_total()
                 $('tbody tr').each(function(index) {
                 //change hidden input value
