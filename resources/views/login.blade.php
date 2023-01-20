@@ -40,6 +40,9 @@
         justify-content: center;
         background: white;
         border-radius: 5px;
+        box-shadow: 3px px 3px 3px rgba(0,0,0,0.30);
+
+
     }
 
     .box{
@@ -75,6 +78,10 @@
        text-align: center;
     }
 
+.log{
+    margin-left: 50px;
+}
+
 </style>
 <body>
     <header>
@@ -90,11 +97,12 @@
                 <div class="col-md-10 box">
                     <form role="form" action="/index" method="POST">
                         @csrf
-                            <div class=" text-primary">
-                                <h2> <i class="fa-solid fa-user"></i>  Login</h2>
+                            <div class=" text-primary login">
+                                <h2 class="log"> <i class="fa-solid fa-user"></i>  Login</h2>
                             </div><hr>
+
                             <div class="input-container">
-                                <i class="fa fa-envelope icon bg-primary"></i>
+                                <i class="fa-solid fa-user icon bg-primary"></i>
                                 <input class="input-field form-control" type="text" placeholder="Enter Email" name="email">
                             </div>
                             <div class="input-container ">
@@ -102,7 +110,7 @@
                                 <input class="input-field form-control" type="password" placeholder="Password" name="password">
                             </div>
                             <hr>
-                            <p align="left"><input type="submit" name="submit" value="Login" class="btn btn-secondary"></p>
+                            <p align="left"><input type="submit" name="submit" value="Login" class="btn btn-secondary "></p>
                     </form>
                 </div>
             </div>

@@ -60,7 +60,7 @@
 </style>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg   bg-secondary">
+        <nav class="navbar navbar-expand-lg bg-secondary">
             <div class="container-fluid">
             <a class="navbar-brand nav" href=""><i class="fa-solid fa-cart-shopping"> Grocery shop </i></a>
             </div>
