@@ -153,14 +153,15 @@
         </form>
 
     <script>
-                $(document).ready(function(){
+            $(document).ready(function(){
+
                 $("#date").datepicker({
                     dateFormat:"dd-mm-yy"
                 });
 
         // <--Add row-->
                 var i=2;
-                $("#btn-add-row").on('click',function(){
+                $("#btn-add-row").click(function(){
                 i++
                 $("#row").append("<tr class='list'><td id='row_num "+i+"'><input type='text' required name='sno[]' class='form-control' value="+i+" style='text-align:center;'></td>'+'<td><input type='text' required name='productname[]' class='form-control productname' style='text-align:center;'></td>'+' <td><input type='text' required name='price[]' class='form-control price' style='text-align:center;'></td>'+'<td><input type='text' required name='qty[]' class='form-control qty' style='text-align:center;'></td> '+' <td><input type='text' required name='subtotal[]' class='form-control subtotal' style='text-align:center;'></td>'+'<td><input type='text' required name='tax[]' class='form-control tax' style='text-align:center;'></td>'+'<td><input type='text' required name='taxamount[]' class='form-control taxamount' style='text-align:center;'></td> '+'<td><input type='text' required name='total[]' class='form-control total' style='text-align:center;'></td>'+'<td><input type='button' value='X' class='btn btn-danger btn-sm btn-row-remove' style='text-align:center;'></td></tr>");
                 });
@@ -193,7 +194,7 @@
 
                 });
 
-        // <--taxamount-->
+        // <--taxamount and total-->
                 $("tbody").on("keyup",".subtotal",function(){
                     var subtotal=Number($(this).val());
                     var tax =Number($(this).closest("tr").find(".tax").val());
@@ -212,19 +213,7 @@
                     grand_total()
                 });
 
-        // <--total-->
-                $("tbody").on("keyup",".subtotal",function(){
-                    var subtotal=Number($(this).val());
-                    var taxamount =Number($(this).closest("tr").find(".taxamount").val());
-                    $(this).closest("tr").find(".total").val(subtotal+taxamount);
-                    grand_total()
-                });
-                $("tbody").on("keyup",".taxamount",function(){
-                    var taxamount=Number($(this).val());
-                    var subtotal =Number($(this).closest("tr").find(".subtotal").val());
-                    $(this).closest("tr").find(".total").val(subtotal+taxamount);
-                    grand_total()
-                });
+
 
         // <--grand_total-->
                 function grand_total(){
@@ -234,7 +223,7 @@
                     });
                     $("#grand_total").val(total);
                 }
-                });
+         });
     </script>
     </section>
 
