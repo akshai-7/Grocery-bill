@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Billing</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <style>
     body{
@@ -77,22 +75,18 @@
                             <td  style="text-align:center;">{{$bills->grandtotal}}</td>
                             <td style="text-align:center;">
                             <a href="productlist/{{$bills->id}}" data-toggle="tooltip" title="View"><i class="fa-solid fa-eye btn btn-primary" ></i></a>
-                            <a href="delete/{{$bills->id}}" data-toggle="tooltip" title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a></td>
+                            <a href="delete/{{$bills->id}}" ><i class="fa-solid fa-trash btn btn-danger"></i></a></td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-        <script>
-            $(document).ready(function(){
-              $('[data-toggle="tooltip"]').tooltip();
-            });
-        </script>
+
     </section>
     <footer class="bg-secondary">
         <div class="footer mb-3">
             {{-- <p align="left"><a href="" class="text-white">www.groceryshop.com</a></p> --}}
-            <p align="right"><a href="/print"><i class="fa-solid fa-print btn btn-primary"></i></a></p>
+
         </div>
     </footer>
 </body>

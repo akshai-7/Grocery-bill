@@ -152,7 +152,7 @@
             </div>
         </form>
 
-        <script>
+    <script>
                 $(document).ready(function(){
                 $("#date").datepicker({
                     dateFormat:"dd-mm-yy"
@@ -235,7 +235,7 @@
                     $("#grand_total").val(total);
                 }
                 });
-        </script>
+    </script>
     </section>
 
     <footer class="bg-secondary">
