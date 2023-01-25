@@ -94,6 +94,9 @@
                                 <div class="form-group col-sm-8 mb-3">
                                     <label  class="mb-2"> <i class="fa-solid fa-phone mb-2"></i>  Mobile<label>
                                     <input type="text" name="mobile" required class="form-control" value="{{$user->mobile}}">
+                                    @if ($errors->first('mobile'))
+                                    <div class="alert alert-primary">{{$errors->first('mobile')}}</div>
+                                    @endif
                                 </div>
                     </div>
                 <div>
@@ -190,7 +193,7 @@
 
                 });
 
-        // <--taxamount-->
+        // <--taxamount and total-->
                 $("tbody").on("keyup",".subtotal",function(){
                     var subtotal=Number($(this).val());
                     var tax =Number($(this).closest("tr").find(".tax").val());
@@ -208,7 +211,6 @@
                     $(this).closest("tr").find(".total").val(subtotal+taxamount);
                     grand_total()
                 });
-
 
 
         // <--grand_total-->

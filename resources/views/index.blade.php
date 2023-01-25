@@ -94,6 +94,9 @@
                                 <div class="form-group col-sm-8 mb-3">
                                     <label class="mb-2"><i class="fa-solid fa-phone "></i> Mobile</label>
                                     <input type="text" name="mobile" required class="form-control">
+                                    @if ($errors->first('mobile'))
+                                    <div class="alert alert-primary">{{$errors->first('mobile')}}</div>
+                                    @endif
                                 </div>
                     </div>
                 <div>
@@ -151,7 +154,6 @@
                 </div>
             </div>
         </form>
-
     <script>
             $(document).ready(function(){
 
@@ -212,8 +214,6 @@
                     $(this).closest("tr").find(".total").val(subtotal+taxamount);
                     grand_total()
                 });
-
-
 
         // <--grand_total-->
                 function grand_total(){

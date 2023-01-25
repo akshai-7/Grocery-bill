@@ -85,7 +85,7 @@
     </section>
     <footer class="bg-secondary">
         <div class="footer mb-3">
-            {{-- <p align="left"><a href="" class="text-white">www.groceryshop.com</a></p> --}}
+            <p align="right"><a href="/index"><i class="fa-solid fa-house-user btn btn-success"></i></a>
 
         </div>
     </footer>

@@ -20,7 +20,7 @@ class ProductController extends Controller
             'date'=>'required',
             'name'=>'required',
             'address'=>'required|max:50',
-            'mobile'=>'required',
+            'mobile'=>'required|max:10|min:10',
             'grandtotal=>requireed',
             'productname'=>'required',
             'price'=>'required',
@@ -95,22 +95,26 @@ class ProductController extends Controller
 // dd($bill_id);
 
         $user = Bill::with('product')->whereId($bill_id)->first();
-        // $user = Bill::with('product')->where('name', 'mani')->first();
-        // $user = Bill::with('product')->orwhere('name', 'mani')->first();
-        // $user = Bill::find($id);
-        // $user = Bill::pluck('Akshai','name');
-        // $user = Product::with('bills')->count();
-        // $user = Bill::with('product')->count();
+
+        // $user = Bill::with('product')->whereIn('id', [1,2,3,4])->get();
+        // $user = Bill::with('product')->whereNotNull('id')->get();
+        // $user1 = Bill::all();
+        // $user = Bill::with('product')->orwhere('name', 'mani')->pluck('name');
+        // $user = Bill::with('product')->where('name', 'mani')->value('address');
+        // $user = Bill::findOrFail(5);
+        // $user = Bill::find($bill_id);
+        // $user = Bill::pluck('id','name',);
+        // $user = Bill::count();
+        // $user = Product::count();
         // $user = Bill::with('product')->orderBy('name');
         // $user = Product::with('bills')->max('price');
         // $user = Product::with('bills')->avg('total');
         // $user = Product::with('bills')->distinct('1','2');
-        // $user = Product::with('bills')->select('total');
         // $user = Product::with('bills') ->groupBy('subtotal');
         // $user = Product::with('bills') ->sum('subtotal');
         // $user = Product::with('bills') ->min('subtotal');
         // $user = Product::with('bills') ->latest('id');
-        // $user = Product::with('bills') ->limit('total');
+        // $user = Product::limit('3');
         // $user = Product::with('bills') ->offset('total');
         // $user = Product::with('bills')->groupBy('price')->having('price','>','100');
         // dd($user);
@@ -119,6 +123,7 @@ class ProductController extends Controller
         // $user = Product::with('bills')->whereId($bill_id)->first();
         // $user= Bill::find($bill_id);
 
+        // dd($user1,$user);
         // dd($user);
         return view ('/edit',['user'=>$user]);
         return response()->json($user);
@@ -137,7 +142,7 @@ class ProductController extends Controller
             'date'=>'required',
             'name'=>'required',
             'address'=>'required|max:50',
-            'mobile'=>'required',
+            'mobile'=>'required|max:10|min:10',
             'grandtotal=>requireed',
             'productname'=>'required',
             'price'=>'required',
